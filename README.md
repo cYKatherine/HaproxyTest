@@ -31,6 +31,8 @@ $ docker run --name nginx-test-kat -d -p 8180:80 --network nginx-kat custom-ngin
     * `EXPOSE 27015` allows the external traffic (outside docker) to access the 27015 port inside docker.
     * The 27015 in `CMD [ "flask", "run","--host","0.0.0.0","--port","27015"]` command runs the flask application on 27015 inside docker.
 * The flask program simply counts and display the number of requests that hit the server.
+* We need to add `resolver 127.0.0.11;` for `/mirror` in `nginx.conf` to make the mirroring to work
+    * `127.0.0.11` is the docker internal DNS server address
 
 # How to test it
 * Go to localhost:8081, and hit the endpoint 10 times
