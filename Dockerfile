@@ -1,4 +1,4 @@
-FROM production.docker.adsrvr.org/ttd-hpc/haproxy-local-reverse-proxy/base:1.4.0
+FROM nginx:1.23.3
 
-COPY ./mirror.cfg /etc/haproxy/mirror.cfg
-COPY ./main.cfg /usr/local/etc/haproxy/haproxy.cfg
+COPY ./nginx.conf /etc/nginx/nginx.conf
+
